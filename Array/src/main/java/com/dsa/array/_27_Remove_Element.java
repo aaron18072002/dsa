@@ -15,9 +15,23 @@ public class _27_Remove_Element {
     return length;
   }
 
+  private static int removeWithCursor(int[] nums, int num) {
+    int length = nums.length;
+    int k = 0; //cursor
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] != num) {
+        nums[k] = nums[i];
+        k++;
+      } else {
+        length--;
+      }
+    }
+    return length;
+  }
+
   public static void main(String[] args) {
-    int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7};
-    int result = removeElement(nums, 2);
+    int[] nums = new int[]{0, 1, 2, 2, 3, 4, 0, 2};
+    int result = removeWithCursor(nums, 2);
     int[] num2 = nums;
     System.out.println(result);
   }
